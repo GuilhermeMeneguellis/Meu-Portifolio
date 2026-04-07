@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
-    "target": "es5",
+    "ignoreDeprecations": "5.0",
+    "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -13,7 +13,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
+    "incremental": false,
     "plugins": [
       {
         "name": "next"
