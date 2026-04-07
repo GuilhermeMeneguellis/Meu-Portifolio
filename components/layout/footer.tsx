@@ -1,22 +1,18 @@
 import Link from 'next/link';
-import { Linkedin, Github, Twitter, Facebook, Instagram, Phone, Mail, MessageSquare } from 'lucide-react';
+import { Linkedin, Github, Phone, Mail, MessageSquare } from 'lucide-react';
 
+import { LegalPopups } from '@/components/layout/legal-popups';
 import { siteConfig } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
 export function Footer() {
-	const currentYear = new Date().getFullYear();
-
 	const socialLinks = [
 		{ icon: <Phone className="h-5 w-5" />, href: siteConfig.links.phone, label: 'Telefone' },
 		{ icon: <Mail className="h-5 w-5" />, href: siteConfig.links.email, label: 'Email' },
 		{ icon: <Linkedin className="h-5 w-5" />, href: siteConfig.links.linkedin, label: 'LinkedIn' },
 		{ icon: <Github className="h-5 w-5" />, href: siteConfig.links.github, label: 'GitHub' },
 		{ icon: <MessageSquare className="h-5 w-5" />, href: siteConfig.links.whatsapp, label: 'WhatsApp' },
-		{ icon: <Twitter className="h-5 w-5" />, href: siteConfig.links.twitter, label: 'Twitter' },
-		{ icon: <Facebook className="h-5 w-5" />, href: siteConfig.links.facebook, label: 'Facebook' },
-		{ icon: <Instagram className="h-5 w-5" />, href: siteConfig.links.instagram, label: 'Instagram' },
 	];
 
 	const navColumns = [
@@ -41,7 +37,7 @@ export function Footer() {
 			links: [
 				{ title: 'Blog', href: '/blog' },
 				{ title: 'Contato', href: '/contact' },
-				{ title: 'Currículo', href: '#', download: true },
+				{ title: 'Currículo', href: '/cv.pdf', download: true },
 			],
 		},
 	];
@@ -52,7 +48,7 @@ export function Footer() {
 				<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 					<div className="md:col-span-1">
 						<Link href="/" className="inline-block">
-							<span className="text-2xl font-bold text-gradient">Portfólio</span>
+							<span className="text-2xl font-bold text-gradient">Meneguelli System</span>
 						</Link>
 						<p className="mt-4 text-sm text-muted-foreground">
 							Um portfólio profissional que apresenta minhas habilidades, projetos e conquistas na área da engenharia.
@@ -93,17 +89,8 @@ export function Footer() {
 				<Separator className="my-8" />
 
 				<div className="flex flex-col sm:flex-row items-center justify-between text-sm">
-					<p className="text-muted-foreground">
-						&copy; {currentYear} Portfólio de Engenharia. Todos os direitos reservados.
-					</p>
-					<div className="mt-4 sm:mt-0 flex gap-4">
-						<Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
-							Política de Privacidade
-						</Link>
-						<Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
-							Termos de Serviço
-						</Link>
-					</div>
+					<p className="text-muted-foreground">&copy; 2026 Meneguelli system. Todos os direitos reservados.</p>
+					<LegalPopups />
 				</div>
 			</div>
 		</footer>

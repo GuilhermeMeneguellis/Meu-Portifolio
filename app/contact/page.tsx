@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent } from '@/components/ui/card';
 import { fadeIn, staggerContainer } from '@/lib/motion';
 
 export default function ContactPage() {
@@ -18,9 +18,7 @@ export default function ContactPage() {
 		message: '',
 	});
 
-	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-	) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		setFormState({
 			...formState,
 			[e.target.name]: e.target.value,
@@ -29,7 +27,6 @@ export default function ContactPage() {
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		// Form submission logic would go here
 		console.log('Formulário enviado:', formState);
 		alert('Mensagem enviada com sucesso!');
 		setFormState({ name: '', email: '', subject: '', message: '' });
@@ -42,35 +39,32 @@ export default function ContactPage() {
 					variants={staggerContainer()}
 					initial="hidden"
 					animate="show"
-					className="max-w-4xl mx-auto"
+					className="mx-auto max-w-4xl"
 				>
-					<motion.div
-						variants={fadeIn('down', 0.2)}
-						className="text-center mb-12"
-					>
-						<h1 className="text-4xl font-bold mb-4">Entre em contato</h1>
+					<motion.div variants={fadeIn('down', 0.2)} className="mb-12 text-center">
+						<h1 className="mb-4 text-4xl font-bold">Entre em contato</h1>
 						<p className="text-lg text-muted-foreground">
-							Tem alguma dúvida ou quer trabalhar comigo? Fique à vontade para entrar em contato!
+							Tem alguma dúvida ou deseja conversar sobre projetos, oportunidades ou parcerias? Fique à vontade para entrar em contato.
 						</p>
 					</motion.div>
 
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div className="grid grid-cols-1 gap-8 md:grid-cols-2">
 						<motion.div variants={fadeIn('right', 0.3)}>
-							<Card className="card-gradient h-full">
+							<Card className="h-full card-gradient">
 								<CardContent className="p-6">
-									<h2 className="text-2xl font-semibold mb-6">Informações de contato</h2>
+									<h2 className="mb-6 text-2xl font-semibold">Informações de contato</h2>
 									<div className="space-y-4">
 										<div className="flex items-center">
-											<Phone className="h-5 w-5 text-primary mr-3" />
-											<p className="text-muted-foreground">+1 234 567 890</p>
+											<Phone className="mr-3 h-5 w-5 text-primary" />
+											<p className="text-muted-foreground">(24) 99963-8117</p>
 										</div>
 										<div className="flex items-center">
-											<Mail className="h-5 w-5 text-primary mr-3" />
-											<p className="text-muted-foreground">contact@example.com</p>
+											<Mail className="mr-3 h-5 w-5 text-primary" />
+											<p className="text-muted-foreground">engenhariadesoftwareguilherme@gmail.com</p>
 										</div>
 										<div className="flex items-center">
-											<MapPin className="h-5 w-5 text-primary mr-3" />
-											<p className="text-muted-foreground">Cidade, País</p>
+											<MapPin className="mr-3 h-5 w-5 text-primary" />
+											<p className="text-muted-foreground">Barra Mansa, RJ, Brasil</p>
 										</div>
 									</div>
 								</CardContent>

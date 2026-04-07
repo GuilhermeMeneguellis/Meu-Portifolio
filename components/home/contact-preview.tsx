@@ -37,7 +37,6 @@ export function ContactPreview() {
 				<SectionHeader
 					title="Entre em contato"
 					description="Tem interesse em trabalharmos juntos ou quer tirar uma dúvida? Fique à vontade para me chamar."
-					className="text-center"
 				/>
 
 				<motion.div

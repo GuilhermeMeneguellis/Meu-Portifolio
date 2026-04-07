@@ -1,3 +1,9 @@
+import type { StaticImageData } from 'next/image';
+
+import governoPresenteImage from '@/assets/image.png';
+import saudeProMaisImage from '@/assets/imagem2.png';
+import parabellumImage from '@/assets/imagem3.png';
+
 export const siteConfig = {
 	name: 'Portfólio de Engenharia',
 	description:
@@ -41,14 +47,14 @@ export const siteConfig = {
 		},
 	],
 	links: {
-		github: 'https://github.com/yourusername',
-		linkedin: 'https://linkedin.com/in/yourusername',
+		github: 'https://github.com/GuilhermeMeneguellis',
+		linkedin: 'https://www.linkedin.com/in/guilherme-de-souza-nunes-meneguelli-065021316/',
 		twitter: 'https://twitter.com/yourusername',
 		facebook: 'https://facebook.com/yourusername',
 		instagram: 'https://instagram.com/yourusername',
-		whatsapp: 'https://wa.me/yourphonenumber',
-		email: 'mailto:youremail@example.com',
-		phone: 'tel:+1234567890',
+		whatsapp: 'https://wa.me/5524999638117',
+		email: 'mailto:engenhariadesoftwareguilherme@gmail.com',
+		phone: 'tel:+5524999638117',
 	},
 };
 
@@ -94,7 +100,7 @@ export const experiences: Experience[] = [
 export type Project = {
 	title: string;
 	description: string;
-	image: string;
+	image: string | StaticImageData;
 	tags: string[];
 	link?: string;
 	repo?: string;
@@ -102,31 +108,28 @@ export type Project = {
 
 export const projects: Project[] = [
 	{
-		title: 'Sistema de Automação Residencial Inteligente',
+		title: 'Saude Pro Mais',
 		description:
-			'Projetei e implementei um sistema de automação residencial com tecnologias de IoT para controlar iluminação, temperatura e recursos de segurança.',
-		image: 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg',
-		tags: ['IoT', 'Arduino', 'C++', 'App móvel'],
-		link: '#',
-		repo: '#',
+			'Plataforma web desenvolvida com TypeScript, Node.js, Next.js, Nest.js e React, utilizando Neon PostgreSQL como base de dados para sustentar uma aplicação moderna, escalável e orientada a performance.',
+		image: saudeProMaisImage,
+		tags: ['TypeScript', 'Node.js', 'Next.js', 'Nest.js', 'React', 'Neon PostgreSQL'],
+		link: 'https://www.saudepromais.com.br/',
 	},
 	{
-		title: 'Software de Análise Estrutural',
+		title: 'Governo Presente',
 		description:
-			'Desenvolvi um software para análise estrutural de vigas e treliças com métodos numéricos e técnicas de visualização.',
-		image: 'https://images.pexels.com/photos/1036657/pexels-photo-1036657.jpeg',
-		tags: ['MATLAB', 'Python', 'FEA', 'Engenharia Estrutural'],
-		link: '#',
-		repo: '#',
+			'Aplicativo mobile desenvolvido com React Native e Expo, distribuído para Play Store e App Store para ampliar o acesso da população a serviços e funcionalidades institucionais.',
+		image: governoPresenteImage,
+		tags: ['React Native', 'Expo', 'Play Store', 'App Store'],
+		link: 'https://appbarramansa.com.br/',
 	},
 	{
-		title: 'Monitoramento de Energia Renovável',
+		title: 'Parabellum Club',
 		description:
-			'Criei um sistema para monitorar e analisar o desempenho de painéis solares e turbinas eólicas em busca da melhor produção de energia.',
-		image: 'https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg',
-		tags: ['Análise de Dados', 'IoT', 'Energia Renovável', 'Visualização'],
-		link: '#',
-		repo: '#',
+			'Plataforma full stack desenvolvida com Next.js e Nest.js, utilizando Docker, MongoDB, PostgreSQL e VPS Ubuntu, com integração à AWS Rekognition para reconhecimento facial.',
+		image: parabellumImage,
+		tags: ['Next.js', 'Nest.js', 'Docker', 'MongoDB', 'PostgreSQL', 'AWS Rekognition'],
+		link: 'https://parabellumclub.com.br/',
 	},
 ];
 
@@ -144,12 +147,11 @@ export type Education = {
 export const education: Education[] = [
 	{
 		degree: 'Bacharelado',
-		field: 'Engenharia Mecânica',
-		institution: 'Nome da Universidade',
+		field: 'Engenharia de Software',
+		institution: 'UBM',
 		location: 'Cidade, País',
-		startDate: 'set. 2020',
+		startDate: '2024',
 		endDate: 'Atual',
-		gpa: '3.8/4.0',
 		achievements: [
 			'Lista de Honra da Faculdade (todos os semestres)',
 			'Bolsa de Excelência Acadêmica',
@@ -212,35 +214,131 @@ export type Skill = {
 	name: string;
 	level: number; // 1-10
 	category: 'technical' | 'software' | 'soft' | 'language';
+	description?: string;
+	highlight?: string;
 };
 
 export const skills: Skill[] = [
 	// Technical Skills
-	{ name: 'Projeto Mecânico', level: 9, category: 'technical' },
-	{ name: 'Análise Estrutural', level: 8, category: 'technical' },
-	{ name: 'Termodinâmica', level: 7, category: 'technical' },
-	{ name: 'Sistemas de Controle', level: 8, category: 'technical' },
-	{ name: 'Projeto de Circuitos', level: 6, category: 'technical' },
+	{
+		name: 'Desenvolvimento Mobile (React Native & Expo)',
+		level: 8,
+		category: 'technical',
+		description: 'Desenvolvimento de aplicações mobile com foco em performance, usabilidade e integração com APIs.',
+		highlight: 'Entrega de aplicações mobile integradas a sistemas completos, com backend, banco de dados e autenticação.',
+	},
+	{
+		name: 'Desenvolvimento Completo (Web + Backend)',
+		level: 8,
+		category: 'technical',
+		description: 'Construção de aplicações completas, desde interfaces modernas até APIs escaláveis e seguras.',
+		highlight: 'Atuação end-to-end, do protótipo ao deploy em produção.',
+	},
+	{
+		name: 'Arquitetura de Software & APIs',
+		level: 7,
+		category: 'technical',
+		description: 'Estruturação de sistemas backend com REST APIs, organização de código, separação de responsabilidades e boas práticas.',
+		highlight: 'Foco em escalabilidade desde o início, mesmo em projetos de pequeno porte.',
+	},
+	{
+		name: 'Modelagem de Banco de Dados (SQL/NoSQL)',
+		level: 7,
+		category: 'technical',
+		description: 'Criação de estruturas eficientes e normalizadas, com foco em performance e escalabilidade.',
+		highlight: 'Modelagem orientada ao domínio do negócio, e não apenas à camada técnica.',
+	},
+	{
+		name: 'Integração de Sistemas (APIs, Serviços e IA)',
+		level: 7,
+		category: 'technical',
+		description: 'Integração com serviços externos, como Azure, AWS e APIs REST, incluindo soluções com inteligência artificial.',
+		highlight: 'Aplicação prática de IA em cenários reais, como reconhecimento facial e identificação de usuários.',
+	},
+	{
+		name: 'DevOps e Infraestrutura (VPS & Deploy)',
+		level: 6,
+		category: 'technical',
+		description: 'Configuração de ambientes em VPS, uso de Docker, Nginx e práticas básicas de CI/CD.',
+		highlight: 'Autonomia para colocar sistemas completos em produção sem dependência de terceiros.',
+	},
 
 	// Software Skills
-	{ name: 'MATLAB', level: 9, category: 'software' },
-	{ name: 'AutoCAD', level: 8, category: 'software' },
-	{ name: 'SolidWorks', level: 9, category: 'software' },
-	{ name: 'Python', level: 7, category: 'software' },
-	{ name: 'C++', level: 6, category: 'software' },
-	{ name: 'ANSYS', level: 8, category: 'software' },
+	{ name: 'TypeScript / JavaScript', level: 9, category: 'software' },
+	{ name: 'Node.js', level: 8, category: 'software' },
+	{ name: 'React Native & Expo', level: 8, category: 'software' },
+	{ name: 'Next.js', level: 7, category: 'software' },
+	{ name: 'React + Vite', level: 8, category: 'software' },
+	{ name: 'Nest.js', level: 7, category: 'software' },
+	{ name: 'Prisma ORM', level: 7, category: 'software' },
+	{ name: 'REST APIs', level: 8, category: 'software' },
+	{ name: 'PostgreSQL', level: 7, category: 'software' },
+	{ name: 'MongoDB', level: 7, category: 'software' },
+	{ name: 'Redis', level: 6, category: 'software' },
+	{ name: 'Docker', level: 6, category: 'software' },
+	{ name: 'Nginx', level: 6, category: 'software' },
+	{ name: 'VPS (Deploy e Configuração)', level: 7, category: 'software' },
+	{ name: 'Integração com APIs de IA (Reconhecimento Facial)', level: 7, category: 'software' },
+	{ name: 'SCORM & LTI (Educação Digital)', level: 7, category: 'software' },
+	{ name: 'Git & GitHub (Versionamento)', level: 8, category: 'software' },
 
 	// Soft Skills
-	{ name: 'Resolução de Problemas', level: 9, category: 'soft' },
-	{ name: 'Liderança de Equipe', level: 8, category: 'soft' },
-	{ name: 'Gestão de Projetos', level: 7, category: 'soft' },
-	{ name: 'Redação Técnica', level: 8, category: 'soft' },
-	{ name: 'Apresentação', level: 7, category: 'soft' },
+	{
+		name: 'Pensamento Analítico & Resolução de Problemas',
+		level: 9,
+		category: 'soft',
+		description: 'Capacidade de transformar problemas complexos em soluções práticas e funcionais.',
+		highlight: 'Forte orientação à entrega e não apenas à teoria.',
+	},
+	{
+		name: 'Adaptabilidade & Resiliência',
+		level: 9,
+		category: 'soft',
+		description: 'Capacidade comprovada de evolução rápida, inclusive em contexto de transição de carreira.',
+		highlight: 'Aprendizado acelerado com aplicação prática imediata.',
+	},
+	{
+		name: 'Comunicação & Didática',
+		level: 9,
+		category: 'soft',
+		description: 'Experiência em ensino, condução de grupos e explicação de conceitos técnicos.',
+		highlight: 'Consigo traduzir tecnologia para clientes não técnicos com clareza.',
+	},
+	{
+		name: 'Visão de Produto & Negócio',
+		level: 8,
+		category: 'soft',
+		description: 'Capacidade de alinhar desenvolvimento técnico com valor real para o cliente.',
+		highlight: 'Penso como desenvolvedor e também como dono do produto.',
+	},
+	{
+		name: 'Trabalho em Equipe & Liderança Técnica',
+		level: 8,
+		category: 'soft',
+		description: 'Atuação colaborativa em times, com organização e foco em entrega.',
+		highlight: 'Já atuei tanto em equipe quanto de forma independente, liderando soluções.',
+	},
+	{
+		name: 'Aprendizado Contínuo & Curiosidade Técnica',
+		level: 9,
+		category: 'soft',
+		description: 'Evolução constante com novas tecnologias, IA e boas práticas de desenvolvimento.',
+		highlight: 'Exploração ativa de IA como acelerador de produtividade em engenharia de software.',
+	},
 
 	// Languages
-	{ name: 'Inglês', level: 10, category: 'language' },
-	{ name: 'Espanhol', level: 6, category: 'language' },
-	{ name: 'Francês', level: 4, category: 'language' },
+	{ name: 'Português (Nativo)', level: 10, category: 'language' },
+	{ name: 'Inglês Técnico (Leitura e Documentação)', level: 7, category: 'language' },
+];
+
+export const strategicDifferentials = [
+	'Desenvolvimento de sistemas completos (web, mobile, backend e infraestrutura).',
+	'Experiência com cliente real e entrega em produção.',
+	'Aplicação prática de Inteligência Artificial em produtos.',
+	'Capacidade de atuar como desenvolvedor de ciclo completo, do zero ao deploy.',
+	'Experiência com educação e formação de pessoas como professor e instrutor.',
+	'Uso de IA como acelerador de produtividade em engenharia de software.',
+	'Perfil híbrido: técnico, com visão de negócio e comunicação com o cliente.',
 ];
 
 export type BlogPost = {

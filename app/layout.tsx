@@ -9,8 +9,8 @@ import { Footer } from '@/components/layout/footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'Portfólio de Engenharia',
-	description: 'Um site de portfólio profissional para estudantes de engenharia.',
+	title: 'Guilherme Meneguelli - Portfolio',
+	description: 'Portfólio profissional.',
 };
 
 export default function RootLayout({

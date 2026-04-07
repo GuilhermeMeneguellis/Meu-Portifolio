@@ -54,7 +54,7 @@ export function AboutPreview() {
 							<Card className="card-gradient">
 								<CardContent className="p-4">
 									<h4 className="font-semibold">Formação</h4>
-									<p className="text-sm text-muted-foreground">Bacharelado em Engenharia Mecânica</p>
+									<p className="text-sm text-muted-foreground">Bacharelado em Engenharia de Software</p>
 								</CardContent>
 							</Card>
 							<Card className="card-gradient">
@@ -66,13 +66,13 @@ export function AboutPreview() {
 							<Card className="card-gradient">
 								<CardContent className="p-4">
 									<h4 className="font-semibold">Projetos</h4>
-									<p className="text-sm text-muted-foreground">Mais de 10 concluídos</p>
+									<p className="text-sm text-muted-foreground">Mais de 5 concluídos</p>
 								</CardContent>
 							</Card>
 							<Card className="card-gradient">
 								<CardContent className="p-4">
 									<h4 className="font-semibold">Premiações</h4>
-									<p className="text-sm text-muted-foreground">5 reconhecimentos</p>
+									<p className="text-sm text-muted-foreground">2 reconhecimentos</p>
 								</CardContent>
 							</Card>
 						</div>

@@ -11,19 +11,18 @@ import { skills } from '@/lib/constants';
 import { staggerContainer, fadeIn } from '@/lib/motion';
 
 export function SkillsPreview() {
-	// Filter top skills from each category (3 per category)
 	const topTechnicalSkills = skills
-		.filter(skill => skill.category === 'technical')
+		.filter((skill) => skill.category === 'technical')
 		.sort((a, b) => b.level - a.level)
 		.slice(0, 3);
 
 	const topSoftwareSkills = skills
-		.filter(skill => skill.category === 'software')
+		.filter((skill) => skill.category === 'software')
 		.sort((a, b) => b.level - a.level)
 		.slice(0, 3);
 
 	const topSoftSkills = skills
-		.filter(skill => skill.category === 'soft')
+		.filter((skill) => skill.category === 'soft')
 		.sort((a, b) => b.level - a.level)
 		.slice(0, 3);
 
@@ -31,8 +30,8 @@ export function SkillsPreview() {
 		<section className="py-16 md:py-24">
 			<div className="container px-4">
 				<SectionHeader
-					title="Habilidades técnicas"
-					description="Principais competências e conhecimentos técnicos que desenvolvi ao longo da minha trajetória na engenharia."
+					title="Habilidades e Especialidades"
+					description="Visão das minhas competências técnicas, stack principal e habilidades comportamentais aplicadas ao desenvolvimento de software."
 				/>
 
 				<motion.div
@@ -42,13 +41,10 @@ export function SkillsPreview() {
 					viewport={{ once: true }}
 					className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10"
 				>
-					<motion.div
-						variants={fadeIn('up', 0.1)}
-						className="space-y-6"
-					>
+					<motion.div variants={fadeIn('up', 0.1)} className="space-y-6">
 						<Card>
 							<CardContent className="p-6">
-								<h3 className="text-xl font-bold mb-4">Conhecimentos técnicos</h3>
+								<h3 className="text-xl font-bold mb-4">Competências Técnicas</h3>
 								<div className="space-y-4">
 									{topTechnicalSkills.map((skill, index) => (
 										<div key={index}>
@@ -72,13 +68,10 @@ export function SkillsPreview() {
 						</Card>
 					</motion.div>
 
-					<motion.div
-						variants={fadeIn('up', 0.2)}
-						className="space-y-6"
-					>
+					<motion.div variants={fadeIn('up', 0.2)} className="space-y-6">
 						<Card>
 							<CardContent className="p-6">
-								<h3 className="text-xl font-bold mb-4">Domínio de softwares</h3>
+								<h3 className="text-xl font-bold mb-4">Stack Tecnológica e Ferramentas</h3>
 								<div className="space-y-4">
 									{topSoftwareSkills.map((skill, index) => (
 										<div key={index}>
@@ -102,13 +95,10 @@ export function SkillsPreview() {
 						</Card>
 					</motion.div>
 
-					<motion.div
-						variants={fadeIn('up', 0.3)}
-						className="space-y-6"
-					>
+					<motion.div variants={fadeIn('up', 0.3)} className="space-y-6">
 						<Card>
 							<CardContent className="p-6">
-								<h3 className="text-xl font-bold mb-4">Competências comportamentais</h3>
+								<h3 className="text-xl font-bold mb-4">Competências Comportamentais</h3>
 								<div className="space-y-4">
 									{topSoftSkills.map((skill, index) => (
 										<div key={index}>
