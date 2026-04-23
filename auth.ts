@@ -54,13 +54,26 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 	callbacks: {
 		async signIn({ user, account, profile }) {
 			if (account?.provider === 'google' && profile?.email) {
-				const dbUser = await upsertGoogleUser({
-					name: profile.name ?? user.name ?? profile.email,
-					email: profile.email,
-					image: (profile as { picture?: string }).picture ?? user.image ?? null,
-					providerId: account.providerAccountId,
-				});
-				user.id = dbUser.id;
+				try {
+					const dbUser = await upsertGoogleUser({
+						name: profile.name ?? user.name ?? profile.email,
+						email: profile.email,
+						image:
+							(profile as { picture?: string }).picture ?? user.image ?? null,
+						providerId: account.providerAccountId,
+					});
+					user.id = dbUser.id;
+				} catch (err) {
+					console.error(
+						'\n[AUTH] Falha ao gravar usuário no Neon durante login Google.\n' +
+							'Verifique:\n' +
+							'  1) DATABASE_URL está setada e correta (.env)\n' +
+							'  2) Tabela `users` existe — rode scripts/schema.sql no Neon\n' +
+							'  3) Conexão com Neon está OK\n',
+						err,
+					);
+					return false;
+				}
 			}
 			return true;
 		},

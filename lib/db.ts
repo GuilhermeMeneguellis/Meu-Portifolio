@@ -1,10 +1,23 @@
-import { neon } from '@neondatabase/serverless';
+import { neon, type NeonQueryFunction } from '@neondatabase/serverless';
 
-if (!process.env.DATABASE_URL) {
-	throw new Error('DATABASE_URL não configurada. Copie .env.example para .env.local e preencha.');
+let cached: NeonQueryFunction<false, false> | null = null;
+
+function getSql(): NeonQueryFunction<false, false> {
+	if (cached) return cached;
+	const url = process.env.DATABASE_URL;
+	if (!url) {
+		throw new Error(
+			'DATABASE_URL não configurada. Copie .env.example para .env.local e preencha (ou rode `npx neonctl@latest init`).',
+		);
+	}
+	cached = neon(url);
+	return cached;
 }
 
-export const sql = neon(process.env.DATABASE_URL);
+// Proxy que chama getSql() só no momento em que a query é executada.
+// Evita que a ausência de DATABASE_URL quebre o import do módulo inteiro.
+export const sql = ((strings: TemplateStringsArray, ...values: unknown[]) =>
+	getSql()(strings, ...values)) as NeonQueryFunction<false, false>;
 
 export type DbUser = {
 	id: string;
